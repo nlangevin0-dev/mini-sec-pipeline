@@ -106,6 +106,6 @@ resource "aws_instance" "kafka_broker" {
 
 resource "aws_key_pair" "kafka_key" {
     key_name = "${var.env}-kafka-key"
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("~/.ssh/id_ed25519.pub")
   
 }
