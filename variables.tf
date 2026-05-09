@@ -10,19 +10,19 @@ variable "env" {
   default     = "dev"
 
   validation {
-    condition    = contains(["dev", "staging", "prod"], var.env)
+    condition     = contains(["dev", "staging", "prod"], var.env)
     error_message = "The environment must be one of 'dev', 'staging', or 'prod'."
   }
 }
 
 variable "home_ip" {
-    description = "Your home IP address for SSH access to the Kafka cluster."
-    type        = string
+  description = "Your home IP address for SSH access to the Kafka cluster."
+  type        = string
 }
 
 variable "instance_type" {
-    description = "The EC2 instance type for the Kafka cluster."
-    type        = string
-    default     = "t3.small"
+  description = "The EC2 instance type for the Kafka cluster."
+  type        = string
+  default     = "t3.small"
 }
 

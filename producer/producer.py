@@ -4,8 +4,7 @@ import json
 from kafka import KafkaProducer
 import requests
 
-
-KAFKA_BOOTSTRAP = "3.237.183.25:9092"
+KAFKA_BOOTSTRAP = "44.197.215.55:9092"
 TOPIC = "events-raw"
 
 def make_producer():

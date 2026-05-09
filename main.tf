@@ -6,6 +6,11 @@ terraform {
         source = "hashicorp/aws"
         version = "~> 5.0"
       }
+      random = {
+    source  = "hashicorp/random"
+    version = "~> 3.0"
+  }
+
     }
 }
 
@@ -109,3 +114,16 @@ resource "aws_key_pair" "kafka_key" {
     public_key = file("~/.ssh/id_ed25519.pub")
   
 }
+
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+
+resource "aws_s3_bucket" "events" {
+  bucket = "${var.env}-min-sec-pipeline-${random_id.bucket_suffix.hex}"
+
+  tags = {
+    Name = "${var.env}-events-bucket"
+  }
+}
+
