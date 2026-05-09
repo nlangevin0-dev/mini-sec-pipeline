@@ -23,6 +23,6 @@ variable "home_ip" {
 variable "instance_type" {
     description = "The EC2 instance type for the Kafka cluster."
     type        = string
-    default     = "t3.micro"
+    default     = "t3.small"
 }
 
